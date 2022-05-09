@@ -12,4 +12,16 @@ template RangeProof(n) {
     component high = GreaterEqThan(n);
 
     // [assignment] insert your code here
+    // "in" should be equal or greater than first number from range
+    high.in[0] <== in;
+    high.in[1] <== range[0];
+    // "in" should be equal or lesser than the second number from range
+    low.in[0] <== in;
+    low.in[1] <== range[1];
+    // assert that both constraints are true (1 and 1 which product is 1)
+    assert(1 == low.out * high.out);
+    // output the result
+    out <== low.out * high.out;
 }
+
+// component main = RangeProof(32);
